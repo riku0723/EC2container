@@ -56,7 +56,7 @@ function Home() {
       setIncomeItems(incomeItems);
     })
     */
-    axios.get("http://127.0.0.1:8080/getIncome").then((response) => {
+    axios.get("http://127.18.0.3:8080/getIncome").then((response) => {
       if (response.status !== 200) {
         throw new Error("レスポンスエラー");
       } else {
@@ -85,7 +85,7 @@ function Home() {
     params.append("Amount", amount);
     //params.append('Date', date)
 
-    axios.post("http://127.0.0.1:8080/addProduct", params).then((response) => {
+    axios.post("http://127.18.0.3:8080/addProduct", params).then((response) => {
       setIncomeItems([
         ...incomeItems,
         { text: inputText, amount: inputAmount, docId: docId },
@@ -100,7 +100,7 @@ function Home() {
     const params = new URLSearchParams();
     params.append("ID", docId);
 
-    axios.post("http://127.0.0.1:8080/delete", params).then((response) => {
+    axios.post("http://127.18.0.3:8080/delete", params).then((response) => {
       getIncomeData();
     });
   };
@@ -115,7 +115,7 @@ function Home() {
       setExpenseItems(expenseItems);
     })
     */
-    axios.get("http://127.0.0.1:8080/getExpense").then((response) => {
+    axios.get("http://127.18.0.3:8080/getExpense").then((response) => {
       if (response.status !== 200) {
         throw new Error("レスポンスエラー");
       } else {
@@ -142,7 +142,7 @@ function Home() {
     params.append("ProductName", text);
     params.append("Amount", amount);
 
-    axios.post("http://127.0.0.1:8080/expProduct", params).then((response) => {
+    axios.post("http://127.18.0.3:8080/expProduct", params).then((response) => {
       setExpenseItems([
         ...expenseItems,
         { text: inputText, amount: inputAmount, docId: docId },
